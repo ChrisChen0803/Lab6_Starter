@@ -13,8 +13,7 @@ class RecipeCard extends HTMLElement {
     // A3. TODO - Create a style element - This will hold all of the styles for the Web Component
     const newStyle = document.createElement('style');
     // A4. TODO - Insert all of the styles from cardTemplate.html into the <style> element you just made
-    newStyle.textContent = 
-    `
+    newStyle.textContent = `
     * {
       font-family: sans-serif;
       margin: 0;
@@ -129,7 +128,7 @@ class RecipeCard extends HTMLElement {
     //           do not nest an <article> inside another <article>). You should use Template
     //           literals (tempalte strings) and element.innerHTML for this.
     
-    addedArticle.innerHTML=`<article>
+    addedArticle.innerHTML=`
   <img src=`+data.imgSrc+
     ` alt=`+data.imgAlt+`>
   <p class="title">
@@ -145,7 +144,7 @@ class RecipeCard extends HTMLElement {
   <p class="ingredients">`
     +data.ingredients+
   `</p>
-</article>`;
+`;
   }
 }
 
