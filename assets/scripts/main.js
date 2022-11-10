@@ -24,6 +24,10 @@ function getRecipesFromStorage() {
   // A9. TODO - Complete the functionality as described in this function
   //           header. It is possible in only a single line, but should
   //           be no more than a few lines.
+  if (localStorage.getItem('recipes') === null) {
+    const empty = [];
+    return empty;
+  }
   const str = localStorage.getItem("recipes");
   return JSON.parse(str);
 }
@@ -102,7 +106,6 @@ function initFormHandler() {
     let currecipes = getRecipesFromStorage();
     currecipes.push(recipeObject);
     saveRecipesToStorage(currecipes);
-    addRecipesToDocument(currecipes);
   });
     // B10. TODO - Get a reference to the "Clear Local Storage" button
     // B11. TODO - Add a click event listener to clear local storage button
