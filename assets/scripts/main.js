@@ -63,10 +63,7 @@ function saveRecipesToStorage(recipes) {
   //            header. It is possible in only a single line, but should
   //            be no more than a few lines.
   
-  const str = recipes.toString();
-  console.log(localStorage.recipes);
-  localStorage.recipes=str;
-  
+  localStorage.setItem('recipes',JSON.stringify(recipes));
 }
 
 /**
@@ -102,7 +99,10 @@ function initFormHandler() {
     document.querySelector("main").appendChild(temp);
     // B9. TODO - Get the recipes array from localStorage, add this new recipe to it, and
     //            then save the recipes array back to localStorage
-    console.log(localStorage.getItem("recipe"));
+    let currecipes = getRecipesFromStorage();
+    currecipes.push(recipeObject);
+    saveRecipesToStorage(currecipes);
+    addRecipesToDocument(currecipes);
   });
     // B10. TODO - Get a reference to the "Clear Local Storage" button
     // B11. TODO - Add a click event listener to clear local storage button
